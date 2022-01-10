@@ -6,7 +6,6 @@ import List from './components/List';
 function App() {
   const [addTodo, setAddTodo] = useState('');
   const onSubmit = (todo: string) => {
-    console.log(todo);
     setAddTodo(todo);
   }
 

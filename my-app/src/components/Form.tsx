@@ -32,7 +32,7 @@ export default function Form({ onSubmit }: FormProps) {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <input onChange={onChange} name="todoInput"  />
+        <input onChange={onChange} name="todoInput" value={todo || ''} />
         <button type="submit">추가</button>
       </form>
     </>

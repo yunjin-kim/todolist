@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 type ListProps = {
-  addTodo: string
+  addTodo: string;
 }
 
 export default function List({ addTodo }: ListProps) {
@@ -12,18 +12,16 @@ export default function List({ addTodo }: ListProps) {
     localTodoList && setTodoList(JSON.parse(localTodoList));
   }, [addTodo]);
 
-  const handleDelete = (event: any) => {
-    alert("정말 삭제하시겠습니가?");
+  const handleDelete = ({target}: any) => {
     todoList.map((todo, index) => (
-      todo === event.target.closest("li").children[0].textContent
+      todo === target.closest("li").children[0].textContent
       && todoList.splice(index, 1)
-    ))
+    )); 
+    setTodoList([...todoList]);
+    console.log(todoList);
     localStorage.setItem("TODO", JSON.stringify(todoList));
-    setTodoList(todoList);
   };
 
-
-  console.log(todoList)
 
   return (
     <>
